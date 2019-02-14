@@ -60,6 +60,8 @@ void tree_destroy(IntTree **tree);
 
 #define inttree_data(node) ((node) -> data)
 
+#define inttree_left(node) ((node) -> left)
+
 #define inttree_right(node) ((node) -> right)
 
 #endif
