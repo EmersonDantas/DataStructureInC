@@ -21,5 +21,10 @@ int main(int argc, char** argv){
     printf("\nPos-Order");
     posorder(mytree -> root);
     
+    tree_destroy(&mytree);
+    
+    printf("\n");
+    fflush(stdout);
+    
     return EXIT_SUCCESS;
 }
