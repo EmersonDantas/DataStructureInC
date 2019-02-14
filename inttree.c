@@ -63,3 +63,61 @@ IntTreeNode* intnode_search(IntTreeNode *node, int val)
     }
     
 }
+
+IntTreeNode* tree_max(IntTreeNode *node){
+    if(node == NULL) return 0;
+
+    while(node -> right != NULL){
+        node = node -> right;
+    }
+    return node;
+}
+
+IntTreeNode* tree_min(IntTreeNode *node){
+    if(node == NULL) return 0;
+
+    while(node -> left != NULL){
+        node = node -> left;
+    }
+
+    return node;
+}
+
+void tree_remove(IntTree **tree, IntTreeNode *z){
+    IntTreeNode* y;
+
+    if(z -> left == NULL){
+        tree_transplant(tree, z, z->right);
+    }else{
+        if(z -> right == NULL){
+            tree_transplant(tree, z, z->left);
+        }else{
+            y = tree_min(z -> right);
+
+            if(y -> father != z){
+                tree_transplant(tree, y, y->right);
+                y->right = z->right;
+                y->right->father = y;
+            }
+
+            tree_transplant(tree, z, y);
+            y-> left = z-> left;
+            y-> left-> father = y;
+        }
+    }
+}
+
+void node_destry(IntTreeNode *node){
+    if(node != NULL){
+        node_destroy(node->left);
+        node_destroy(node->right);
+        free(node);
+    }
+}
+
+void tree_destroy(IntTree ** tree){
+    node_destroy((*tree)->root);
+    (*tree)->size = 0;
+    free((*tree));
+}
+
