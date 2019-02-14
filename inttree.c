@@ -48,3 +48,18 @@ IntTreeNode* intnode_search(IntTree *tree, int val)
     return intnode_search(tree -> root, val);
 }
 
+IntTreeNode* intnode_search(IntTreeNode *node, int val)
+{
+    if ((node == NULL) || (node -> data == val)) {
+        return node;
+    }
+    if (node -> data > val)
+    {
+        return intnode_search(node -> left , val);
+    }
+    else
+    {
+        return intnode_search(node -> right, val);
+    }
+    
+}
