@@ -55,15 +55,11 @@ IntTreeNode* intnode_search(IntTreeNode *node, int val){
     if ((node == NULL) || (node -> data == val)) {
         return node;
     }
-    if (node -> data > val)
-    {
+    if (node -> data > val){
         return intnode_search(node -> left , val);
-    }
-    else
-    {
+    }else{
         return intnode_search(node -> right, val);
-    }
-    
+    }  
 }
 
 IntTreeNode* tree_max(IntTreeNode *node){
@@ -81,7 +77,6 @@ IntTreeNode* tree_min(IntTreeNode *node){
     while(node -> left != NULL){
         node = node -> left;
     }
-
     return node;
 }
 
@@ -94,12 +89,11 @@ void tree_insert(IntTree **tree, int val)
     y = NULL;
     x = (*tree) -> root;
 
-    while(x -> data > val){
+    while(x != NULL){
         y = x;
-        if(x->data > val){
+        if(x -> data > val){
             x = x -> left;
-        }
-        else{
+        }else{
             x = x -> right;
         }
     }
@@ -108,12 +102,10 @@ void tree_insert(IntTree **tree, int val)
     
     if (y == NULL){
         (*tree) -> root = z;
-    }
-    else{
+    }else{
         if((z -> data) < (y -> data)){
             y -> left = z;
-        }
-        else{
+        }else{
             y -> right = z;
         }
     }
@@ -140,22 +132,22 @@ void tree_remove(IntTree **tree, IntTreeNode *z){
     IntTreeNode* y;
 
     if(z -> left == NULL){
-        tree_transplant(tree, z, z->right);
+        tree_transplant(tree, z, z -> right);
     }else{
         if(z -> right == NULL){
-            tree_transplant(tree, z, z->left);
+            tree_transplant(tree, z, z -> left);
         }else{
             y = tree_min(z -> right);
 
             if(y -> father != z){
-                tree_transplant(tree, y, y->right);
-                y->right = z->right;
-                y->right->father = y;
+                tree_transplant(tree, y, y -> right);
+                y -> right = z -> right;
+                y -> right -> father = y;
             }
 
             tree_transplant(tree, z, y);
-            y-> left = z-> left;
-            y-> left-> father = y;
+            y -> left = z -> left;
+            y -> left -> father = y;
         }
     }
 }
