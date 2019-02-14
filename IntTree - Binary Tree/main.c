@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "inttree.h"
+#include "inttree.c"
 
 int main(int argc, char** argv){
     IntTree *mytree;

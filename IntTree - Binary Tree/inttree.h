@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 
+
 typedef struct IntTreeNode_
 {
     int data;

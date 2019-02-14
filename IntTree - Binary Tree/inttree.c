@@ -23,8 +23,7 @@ IntTreeNode* intnode_init(int val){
     return z;
 }
 
-void preorder(IntTreeNode *node)
-{
+void preorder(IntTreeNode *node){
     if(node != NULL){
         printf("%5d", node -> data);
         preorder(node -> left);
@@ -32,12 +31,19 @@ void preorder(IntTreeNode *node)
     }
 }
 
-void inorder(IntTreeNode *node)
-{
+void inorder(IntTreeNode *node){
     if(node != NULL){
         inorder(node -> left);
         printf("%5d", node -> data);
         inorder(node -> right);
+    }
+}
+
+void posorder(IntTreeNode *node){
+    if(node != NULL){
+        inorder(node -> left);
+        inorder(node -> right);
+        printf("%5d", node -> data);
     }
 }
 
