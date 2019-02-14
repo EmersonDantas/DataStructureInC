@@ -41,8 +41,8 @@ void inorder(IntTreeNode *node){
 
 void posorder(IntTreeNode *node){
     if(node != NULL){
-        inorder(node -> left);
-        inorder(node -> right);
+        posorder(node -> left);
+        posorder(node -> right);
         printf("%5d", node -> data);
     }
 }
