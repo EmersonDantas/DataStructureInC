@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Inttree.h"
+#include "inttree.h"
 
 int main(int argc, char** argv){
     IntTree *mytree;
@@ -19,5 +19,7 @@ int main(int argc, char** argv){
     inorder(mytree -> root);
 
     printf("\nPos-Order");
-    printf(mytree -> root);
+    posorder(mytree -> root);
+    
+    return EXIT_SUCCESS;
 }

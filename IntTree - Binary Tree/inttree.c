@@ -154,7 +154,7 @@ void tree_remove(IntTree **tree, IntTreeNode *z){
     }
 }
 
-void node_destry(IntTreeNode *node){
+void node_destroy(IntTreeNode *node){
     if(node != NULL){
         node_destroy(node->left);
         node_destroy(node->right);
