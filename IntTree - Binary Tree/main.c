@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "inttree.h"
+#include "Inttree.h"
 
 int main(int argc, char** argv){
     IntTree *mytree;
@@ -11,4 +11,13 @@ int main(int argc, char** argv){
     for(i = 0; i < 8; i++){
         tree_insert(&mytree, myarray[i]);
     }
+
+    printf("\nPre-Order");
+    preorder(mytree -> root);
+
+    printf("\nIn-Order");
+    inorder(mytree -> root);
+
+    printf("\nPos-Order");
+    printf(mytree -> root);
 }
