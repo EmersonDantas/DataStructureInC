@@ -37,11 +37,9 @@ IntTreeNode* inttree_search(IntTree *tree, int val);
 
 IntTreeNode* intnode_search(IntTreeNode *node, int val);
 
-IntTreeNode* intnode_search(IntTreeNode *node, int val);
-
 IntTreeNode* tree_max(IntTreeNode *node);
 
-intTreeNode* tree_mim(IntTreeNode *node);
+IntTreeNode* tree_mim(IntTreeNode *node);
 
 void tree_insert(IntTree **tree, IntTreeNode *u, IntTreeNode *v);
 
