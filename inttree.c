@@ -83,6 +83,57 @@ IntTreeNode* tree_min(IntTreeNode *node){
     return node;
 }
 
+void tree_insert(IntTree **tree, int val)
+{
+    IntTreeNode *Y;
+    IntTreeNode *x;
+    IntTreeNode *z;
+
+    y = NULL;
+    x = (*tree) -> root;
+
+    while(x -> data > val){
+        y = x;
+        if(x->data > val){
+            x = x -> left;
+        }
+        else{
+            x = x -> rigth;
+        }
+    }
+    z = intnode_int(val);
+    z -> father = y;
+    
+    if (y == NULL){
+        (*tree) -> root = z;
+    }
+    else{
+        if((z -> data) < (y - > data)){
+            y -> left = z;
+        }
+        else{
+            y -> right = z;
+        }
+    }
+    (*tree) -> size++;
+}
+
+void tree_transplant(IntTree **tree, IntTreeNode *u, IntTreeNode *v)
+{
+    if(u -> father == NULL){
+        (*tree) -> root = v;
+    }else{
+        if(u == (u -> father) -> left){
+            (u -> father) -> left = v;
+        }else{
+            (u -> father) -> right = v;
+        }
+    }
+    if(v!=NULL){
+        v -> father = u -> father;
+    }
+}
+
 void tree_remove(IntTree **tree, IntTreeNode *z){
     IntTreeNode* y;
 
