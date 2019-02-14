@@ -3,7 +3,7 @@
 
 #include "inttree.h"
 
-void inttree_int(IntTree **tree){
+void inttree_init(IntTree **tree){
     (*tree) = (IntTree*) malloc(sizeof(IntTree));
     (*tree) -> root = NULL;
     (*tree) -> size = 0;

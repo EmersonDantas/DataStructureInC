@@ -23,7 +23,7 @@ typedef struct IntTree_
 
 
 /*Interface publica*/
-void inttree_int(IntTree **tree);
+void inttree_init(IntTree **tree);
 
 IntTreeNode* intnode_init(int val);
 
