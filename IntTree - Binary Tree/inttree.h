@@ -41,7 +41,7 @@ IntTreeNode* tree_max(IntTreeNode *node);
 
 IntTreeNode* tree_mim(IntTreeNode *node);
 
-void tree_insert(IntTree **tree, IntTreeNode *u, IntTreeNode *v);
+void tree_insert(IntTree **tree, int val);
 
 void tree_remove(IntTree **tree, IntTreeNode *z);
 

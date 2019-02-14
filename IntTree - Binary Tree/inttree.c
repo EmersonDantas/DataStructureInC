@@ -1,18 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "Inttree.h"
+#include "inttree.h"
 
-void inttree_int(IntTree **tree)
-{
+void inttree_int(IntTree **tree){
     (*tree) = (IntTree*) malloc(sizeof(IntTree));
     (*tree) -> root = NULL;
     (*tree) -> size = 0;
     return;
 }
 
-IntTreeNode* intnode_init(int val)
-{
+IntTreeNode* intnode_init(int val){
     IntTreeNode *z;
 
     z = (IntTreeNode*) malloc(sizeof(IntTreeNode));
@@ -43,13 +41,11 @@ void inorder(IntTreeNode *node)
     }
 }
 
-IntTreeNode* intnode_search(IntTree *tree, int val)
-{
+IntTreeNode* inttree_search(IntTree *tree, int val){
     return intnode_search(tree -> root, val);
 }
 
-IntTreeNode* intnode_search(IntTreeNode *node, int val)
-{
+IntTreeNode* intnode_search(IntTreeNode *node, int val){
     if ((node == NULL) || (node -> data == val)) {
         return node;
     }
@@ -85,7 +81,7 @@ IntTreeNode* tree_min(IntTreeNode *node){
 
 void tree_insert(IntTree **tree, int val)
 {
-    IntTreeNode *Y;
+    IntTreeNode *y;
     IntTreeNode *x;
     IntTreeNode *z;
 
@@ -98,17 +94,17 @@ void tree_insert(IntTree **tree, int val)
             x = x -> left;
         }
         else{
-            x = x -> rigth;
+            x = x -> right;
         }
     }
-    z = intnode_int(val);
+    z = intnode_init(val);
     z -> father = y;
     
     if (y == NULL){
         (*tree) -> root = z;
     }
     else{
-        if((z -> data) < (y - > data)){
+        if((z -> data) < (y -> data)){
             y -> left = z;
         }
         else{
