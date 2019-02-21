@@ -69,16 +69,20 @@ void push_back(char * name,int temp){
 
 // remove no inicio
 void popFront(){   
-    sentinela -> next = sentinela -> next -> next;
+    node_t * teste = sentinela -> next -> next;
+    sentinela -> next = teste;
     sentinela -> next -> previous = sentinela;    
     tamanho--;
+    free(teste);
 }
 
 // remove no fim
 void popLast(){
-    sentinela -> previous = sentinela -> previous -> previous;
+    node_t * teste = sentinela -> previous -> previous;
+    sentinela -> previous = teste;
     sentinela -> previous -> next = sentinela;
     tamanho--;
+    free(teste);
 }
 
 // imprimir lista
