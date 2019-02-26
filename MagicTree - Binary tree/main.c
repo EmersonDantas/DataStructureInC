@@ -8,9 +8,11 @@ int main(int argc, char** argv){
     /* file reading here */
     String name;
     int minWeather;
-    scanf("%[^\n] %d", name, &minWeather);
 
-    tree_insert(&mytree, name, minWeather);
+    tree_insert(&mytree,"timbauba", 32);
+    tree_insert(&mytree, "Hot", 200);
+    tree_insert(&mytree, "cold", -273);
+    tree_insert(&mytree, "Waterloo", 0);
 
     /* prints here */
     printf("\nPre-Order");
