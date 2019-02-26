@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "magictree.h"
 
@@ -10,12 +11,12 @@ void magictree_init(MagicTree **tree){
     return;
 }
 
-MagicTreeNode* magicnode_init(String *name, int mimWeather){
+MagicTreeNode* magicnode_init(String name, int mimWeather){
     MagicTreeNode *z;
 
     z = (MagicTreeNode*) malloc(sizeof(MagicTreeNode));
 
-    z -> name = name;
+    strcpy(z -> name, name);
     z -> minWeather = mimWeather;
     z -> father = NULL;
     z -> left = NULL;
@@ -28,7 +29,7 @@ void preorder(MagicTreeNode *node){
     if(node != NULL){
         //Necessita de um algoritmo para percorrer até o fim da
         //String para printala corretamente.
-        printf("%5d", node -> minWeather);
+        printf("%s - %5d", node -> name, node -> minWeather);
         preorder(node -> left);
         preorder(node -> right);
     }
@@ -39,7 +40,7 @@ void inorder(MagicTreeNode *node){
         inorder(node -> left);
         //Necessita de um algoritmo para percorrer até o fim da
         //String para printala corretamente.
-        printf("%5d", node -> minWeather);
+        printf("%s - %5d", node -> name, node -> minWeather);
         inorder(node -> right);
     }
 }
@@ -50,23 +51,23 @@ void posorder(MagicTreeNode *node){
         posorder(node -> right);
         //Necessita de um algoritmo para percorrer até o fim da
         //String para printala corretamente.
-        printf("%5d", node -> minWeather);
+        printf("%s - %5d", node -> name, node -> minWeather);
     }
 }
 
-MagicTreeNode* magictree_search(MagicTree *tree, String *name){
+MagicTreeNode* magictree_search(MagicTree *tree, String name){
     return magicnode_search(tree -> root, name);
 }
 
-MagicTreeNode* magicnode_search(MagicTreeNode *node, String name, int weather){
+MagicTreeNode* magicnode_search(MagicTreeNode *node, String name){
     //Apenas está pesquisando pela temperatura.
-    if ((node == NULL) || (node -> minWeather == weather)) {
+    if ((node == NULL) || strcmp(node -> name, name) == 0) {
         return node;
     }
-    if (node -> minWeather > weather){
-        return magicnode_search(node -> left , name, weather);
+    if (strcmp(node -> name, name) == 0){
+        return magicnode_search(node -> left , name);
     }else{
-        return magicnode_search(node -> right, name, weather);
+        return magicnode_search(node -> right, name);
     }  
 }
 
@@ -105,7 +106,7 @@ void tree_insert(MagicTree **tree, String name, int weather)
             x = x -> right;
         }
     }
-    z = intnode_init(name, weather);
+    z = magicnode_init(name, weather);
     z -> father = y;
     
     if (y == NULL){

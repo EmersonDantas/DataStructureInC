@@ -6,7 +6,11 @@ int main(int argc, char** argv){
     magictree_init(&mytree);
 
     /* file reading here */
+    String name;
+    int minWeather;
+    scanf("%[^\n] %d", name, &minWeather);
 
+    tree_insert(&mytree, name, minWeather);
 
     /* prints here */
     printf("\nPre-Order");

@@ -1,19 +1,19 @@
 #ifndef MAGICTREE_H
 #define MAGICTREE_H
+#define MAXLENGTH 1000
 
 #include <stdlib.h>
 
-typedef char String;
+typedef char *String;
 
 typedef struct MagicTreeNode_{
-    String* name;
+    String name;
     int minWeather;
 
     struct MagicTreeNode_ *left;
     struct MagicTreeNode_ *right;
     struct MagicTreeNode_ *father;
 } MagicTreeNode;
-
 
 /*Definir Estrutura da Arvore Binaria Magica*/
 
@@ -26,7 +26,7 @@ typedef struct MagicTree_{
 
 void magictree_init(MagicTree **tree);
 
-MagicTreeNode* magicnode_init(String *name, int minWeather);
+MagicTreeNode* magicnode_init(String name, int minWeather);
 
 void preorder(MagicTreeNode *node);
 
@@ -34,15 +34,15 @@ void inorder(MagicTreeNode *node);
 
 void posorder(MagicTreeNode *node);
 
-MagicTreeNode* magictree_search(MagicTree *tree, String *name, int minWeather);
+MagicTreeNode* magictree_search(MagicTree *tree, String name);
 
-MagicTreeNode* magicnode_search(MagicTreeNode *node, String *name, int minWeather);
+MagicTreeNode* magicnode_search(MagicTreeNode *node, String name);
 
 MagicTreeNode* tree_max(MagicTreeNode *node);
 
 MagicTreeNode* tree_min(MagicTreeNode *node);
 
-void tree_insert(MagicTree **tree, String *name, int minWeather);
+void tree_insert(MagicTree **tree, String name, int minWeather);
 
 void tree_transplant(MagicTree **tree, MagicTreeNode *u, MagicTreeNode *v);
 
