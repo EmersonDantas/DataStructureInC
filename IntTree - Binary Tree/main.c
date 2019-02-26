@@ -3,14 +3,13 @@
 
 int main(int argc, char** argv){
     IntTree *mytree;
-    int i;
-    int myarray[8] = {18,01,23,11,89,71,12,43};
 
     inttree_init(&mytree);
 
-    for(i = 0; i < 8; i++){
-        tree_insert(&mytree, myarray[i]);
-    }
+    tree_insert(&mytree, 32);
+    tree_insert(&mytree, 200);
+    tree_insert(&mytree, -273);
+    tree_insert(&mytree, 0);
 
     printf("\nPre-Order");
     preorder(mytree -> root);
