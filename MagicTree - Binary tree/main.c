@@ -5,14 +5,20 @@ int main(){
     MagicTree *mytree;
     magictree_init(&mytree);
 
-    /* file reading here 
+    //file reading here 
     String name;
-    int minWeather;*/
+    int minWeather;
 
+    while (scanf("%s %d", name, &minWeather) != EOF) {
+        tree_insert(&mytree, name, minWeather);
+    }
+
+    /*
     tree_insert(&mytree, "timbauba", 32);
     tree_insert(&mytree, "Hot", 200);
     tree_insert(&mytree, "cold", -273);
     tree_insert(&mytree, "Waterloo", 0);
+    */
 
     /* prints here */
     printf("\nPre-Order:\n");
