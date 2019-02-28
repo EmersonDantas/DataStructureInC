@@ -89,7 +89,7 @@ void popLast(){
 void print_list(){
     node_t *current = sentinela -> next;
     while(current != sentinela){   
-        printf("city: %s\ntemperature: %d\n",current -> nome,current -> temp);             
+        printf("City: %s\nTemperature: %d\n\n",current -> nome,current -> temp);             
         current = current -> next;
     }
 }
@@ -97,12 +97,14 @@ void print_list(){
 // busca pelo nome
 void findName(char * name){
     node_t * current = sentinela -> next;
-    for(;current != sentinela;current = current -> next){        
-        if(strcmp(current -> nome,name) == 0){
-            printf("city: %s\ntemperature: %d\n",current -> nome,current -> temp);
+    for (;current != sentinela;current = current -> next) {  
+
+        if (strcmp(current -> nome,name) == 0) {
+            printf("City: %s\nTemperature: %d\n",current -> nome,current -> temp);
             break;
-        }else if(current -> next == sentinela){
-            printf("cidade não foi encontrada\n");
+
+        } else if (current -> next == sentinela) {
+            printf("%s City was not found!", name);
         }
     }
 }
