@@ -8,17 +8,12 @@ int main(){
     //file reading here 
     String name;
     int minWeather;
+    FILE *op;
+    op = fopen("Teste-01.in", "r");
 
-    while (scanf("%s %d", name, &minWeather) != EOF) {
+    while (fscanf(op, "%s %d", name, &minWeather) != EOF) {
         tree_insert(&mytree, name, minWeather);
     }
-
-    /*
-    tree_insert(&mytree, "timbauba", 32);
-    tree_insert(&mytree, "Hot", 200);
-    tree_insert(&mytree, "cold", -273);
-    tree_insert(&mytree, "Waterloo", 0);
-    */
 
     /* prints here */
     printf("\nPre-Order:\n");
