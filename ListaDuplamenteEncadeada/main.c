@@ -8,10 +8,13 @@ int main() {
 
     char *name;
     int temp, choice = 0;
+    FILE *op;
+    op = fopen("Teste-01.in", "r");
+
 
     // Inicializando Lista Duplamente Encadeada
     node_t *init = init_lista(0);
-    while (scanf("%s %d", name, &temp) != EOF) {
+    while (fscanf(op, "%s %d", name, &temp) != EOF) {
         push_back(name, temp);
     }
 
