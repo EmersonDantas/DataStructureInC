@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
 #include "magictree.h"
 
 void magictree_init(MagicTree **tree){
@@ -13,23 +12,20 @@ void magictree_init(MagicTree **tree){
 
 MagicTreeNode* magicnode_init(String name, int mimWeather){
     MagicTreeNode *z;
-
     z = (MagicTreeNode*) malloc(sizeof(MagicTreeNode));
-
+    z -> name = malloc(sizeof(char));
     strcpy(z -> name, name);
     z -> minWeather = mimWeather;
     z -> father = NULL;
     z -> left = NULL;
     z -> right = NULL;
-
+    
     return z;
 }
 
 void preorder(MagicTreeNode *node){
     if(node != NULL){
-        //Necessita de um algoritmo para percorrer até o fim da
-        //String para printala corretamente.
-        printf("%s - %5d", node -> name, node -> minWeather);
+        printf("City: %s\nMin.Weather: %d\n\n", node -> name, node -> minWeather);
         preorder(node -> left);
         preorder(node -> right);
     }
@@ -38,9 +34,7 @@ void preorder(MagicTreeNode *node){
 void inorder(MagicTreeNode *node){
     if(node != NULL){
         inorder(node -> left);
-        //Necessita de um algoritmo para percorrer até o fim da
-        //String para printala corretamente.
-        printf("%s - %5d", node -> name, node -> minWeather);
+        printf("City: %s\nMin.Weather: %d\n\n", node -> name, node -> minWeather);
         inorder(node -> right);
     }
 }
@@ -49,9 +43,7 @@ void posorder(MagicTreeNode *node){
     if(node != NULL){
         posorder(node -> left);
         posorder(node -> right);
-        //Necessita de um algoritmo para percorrer até o fim da
-        //String para printala corretamente.
-        printf("%s - %5d", node -> name, node -> minWeather);
+        printf("City: %s\nMin.Weather: %d\n\n", node -> name, node -> minWeather);
     }
 }
 
@@ -60,7 +52,6 @@ MagicTreeNode* magictree_search(MagicTree *tree, String name){
 }
 
 MagicTreeNode* magicnode_search(MagicTreeNode *node, String name){
-    //Apenas está pesquisando pela temperatura.
     if ((node == NULL) || strcmp(node -> name, name) == 0) {
         return node;
     }

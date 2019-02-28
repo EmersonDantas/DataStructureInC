@@ -1,2 +1,3 @@
 & unário retorna o endereço de uma variável
 * unário retorna o conteúdo de um endereço
+** um ponteiro que aponta para outro ponteiro
