@@ -8,10 +8,8 @@ int main(){
     //file reading here 
     String name;
     int minWeather;
-    FILE *op;
-    op = fopen("Teste-03.in", "r");
 
-    while (fscanf(op, "%s %d", name, &minWeather) != EOF) {
+    while (scanf("%s %d", name, &minWeather) != EOF) {
         tree_insert(&mytree, name, minWeather);
     }
 
