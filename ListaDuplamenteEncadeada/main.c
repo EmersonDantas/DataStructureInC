@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "DoublyLinkedList.h"
+#include "DoublyLinkedList.c"
 
 int main() {
 
@@ -7,8 +7,8 @@ int main() {
     int temp;
    
     // Inicializando Lista Duplamente Encadeada
-    node_t *init = init_lista(0);
-    while (fscanf(op, "%s %d", name, &temp) != EOF) {
+    node_t *init = init_lista();
+    while (scanf("%s %d", name, &temp) != EOF) {
         push_back(name, temp);
     }
 
