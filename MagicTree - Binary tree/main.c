@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "magictree.c"
 
-int main(){
+int main() {
+
     MagicTree *mytree;
     magictree_init(&mytree);
 
@@ -13,7 +14,7 @@ int main(){
         tree_insert(&mytree, name, minWeather);
     }
 
-    /* prints here */
+    //Impressões da Árvore Binária
     printf("\nPre-Order:\n");
     preorder(mytree -> root);
 
