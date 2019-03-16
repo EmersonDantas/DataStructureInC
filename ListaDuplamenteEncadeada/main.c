@@ -12,7 +12,8 @@ int main() {
         push_back(name, temp);
     }
 
-    print_list();
+    printf("Buscando pela Cidade: Waterloo\n\n");
+    findName("Waterloo");
 
     free(init);
 
