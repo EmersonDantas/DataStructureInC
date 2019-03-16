@@ -4,30 +4,36 @@
 #include "DoublyLinkedList.h"
 
 // inicializa a lista
-node_t* init_node(char * name,int temp){
+node_t *init_node(char * name, int temp) {
     node_t *my_node = NULL;
+
     my_node = malloc(sizeof(node_t));
     my_node -> temp = temp;
     my_node -> nome = malloc(sizeof(char));
+
     strcpy(my_node -> nome,name);
+
     my_node -> next = NULL;
     my_node -> previous = NULL;
+
     return my_node;
 }
 
 // inicializar lista
-node_t* init_lista(){
+node_t *init_lista() {
     sentinela = init_node("",0);   
     return sentinela;
 }
 
 // add no inicio da lista
-void push_front(char * name,int temp){
+void push_front(char *name,int temp){ 
     node_t * new_node = init_node(name,temp);
-    if(tamanho == 0){
+
+    if (tamanho == 0) {
         sentinela -> next = new_node;
         sentinela -> previous = new_node;
-    }else{
+
+    } else {
         new_node -> next = sentinela -> next;
         sentinela -> next -> previous = new_node;
         sentinela -> next = new_node;
@@ -37,12 +43,14 @@ void push_front(char * name,int temp){
 }
 
 // add no fim da lista
-void push_back(char * name,int temp){
+void push_back(char * name,int temp) {
     node_t * new_node = init_node(name,temp);
-    if(tamanho == 0){
+
+    if (tamanho == 0) {
         sentinela -> next = new_node;
         sentinela -> previous = new_node;
-    }else{
+    
+    } else {
         sentinela -> previous -> next = new_node;
         new_node -> previous = sentinela -> previous;
         new_node -> next = sentinela;
@@ -52,11 +60,12 @@ void push_back(char * name,int temp){
 }
 
 // remove no inicio
-void popFront(){   
+void popFront() {   
     node_t * teste = sentinela -> next -> next;
     sentinela -> next = teste;
-    sentinela -> next -> previous = sentinela;    
+    sentinela -> next -> previous = sentinela;
     tamanho--;
+
     free(teste);
 }
 
@@ -70,19 +79,21 @@ void popLast(){
 }
 
 // imprimir lista
-void print_list(){
+void print_list() {
     node_t *current = sentinela -> next;
-    while(current != sentinela){   
+
+    while(current != sentinela) {   
         printf("City: %s\nTemperature: %d\n\n",current -> nome,current -> temp);             
         current = current -> next;
     }
 }
 
 // busca pelo nome
-void findName(char * name){
+void findName(char * name) {
     node_t * current = sentinela -> next;
-    for (;current != sentinela;current = current -> next) {  
 
+    for (;current != sentinela;current = current -> next) {  
+        
         if (strcmp(current -> nome,name) == 0) {
             printf("City: %s\nTemperature: %d\n",current -> nome,current -> temp);
             break;
