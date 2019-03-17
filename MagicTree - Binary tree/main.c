@@ -1,3 +1,9 @@
+/**
+* @file main.c
+* @brief Arquivo para testar a Árvore de Busca Binária
+*
+*/
+
 #include <stdio.h>
 #include "magictree.c"
 

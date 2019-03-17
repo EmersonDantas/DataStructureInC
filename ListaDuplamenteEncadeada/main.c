@@ -1,6 +1,15 @@
-#include <stdio.h>
-#include "DoublyLinkedList.c"
+/**
+* @file main.c
+* @brief Arquivo para testar a Lista Duplamente Encadeada com Sentinela
+*
+*/
 
+#include <stdio.h>
+#include "doublylinkedlist.c"
+
+/**
+* @brief Função main
+*/
 int main() {
 
     char *name;

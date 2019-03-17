@@ -1,5 +1,5 @@
 /**
-* @file DoublyLinkedList.h
+* @file doublylinkedlist.h
 * @brief Arquivo de cabeçalho para a Lista Duplamente Encadeada com Sentinela
 *
 */

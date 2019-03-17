@@ -1,5 +1,5 @@
 /**
-* @file DoublyLinkedList.c
+* @file doublylinkedlist.c
 * @brief Arquivo contendo as implementações das funções da Lista Duplamente Encadeada com Sentinela
 *
 */
@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "DoublyLinkedList.h"
+#include "doublylinkedlist.h"
 
 
 /**
