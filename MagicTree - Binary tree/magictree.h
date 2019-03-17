@@ -78,7 +78,7 @@ void magictree_init(MagicTree **tree);
 MagicTreeNode *magicnode_init(String name, int minWeather);
 
 /**
-* @brief Protótipo percorrer a Árvore de Busca Binária em Pre Order
+* @brief Protótipo percorrer a Árvore de Busca Binária em Pre-Order
 * @param node - Ponteiro de um Nó da Árvore
 * @return void
 *

@@ -1,8 +1,24 @@
+/**
+* @file magictree.c
+* @brief Arquivo contendo as implementações das funções da Árvore de Busca Binária
+*
+*/
+
+/*****************************************
+*   Includes
+******************************************/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "magictree.h"
 
+
+/**
+* @brief Função para inicializar a Árvore de Busca Binária
+* @param tree - Ponteiro para ponteiro da árvore
+* @return void
+*
+*/
 void magictree_init(MagicTree **tree) {
     (*tree) = (MagicTree*) malloc(sizeof(MagicTree));
     (*tree) -> root = NULL;
@@ -11,6 +27,13 @@ void magictree_init(MagicTree **tree) {
     return;
 }
 
+/**
+* @brief Função para inicializar o Nó da Árvore de Busca Binária
+* @param name - Ponteiro tipo char do nome da Cidade
+* @param minWeather - Temperatura da Cidade
+* @return Ponteiro do tipo Nó de Árvore
+*
+*/
 MagicTreeNode* magicnode_init(String name, int mimWeather) {
     MagicTreeNode *z;
     z = (MagicTreeNode*) malloc(sizeof(MagicTreeNode));
@@ -26,6 +49,12 @@ MagicTreeNode* magicnode_init(String name, int mimWeather) {
     return z;
 }
 
+/**
+* @brief Protótipo percorrer a Árvore de Busca Binária em Pre-Order
+* @param node - Ponteiro de um Nó da Árvore
+* @return void
+*
+*/
 void preorder(MagicTreeNode *node) {
     if (node != NULL) {
         printf("City: %s\nMin.Weather: %d\n\n", node -> name, node -> minWeather);
@@ -34,6 +63,12 @@ void preorder(MagicTreeNode *node) {
     }
 }
 
+/**
+* @brief Função percorrer a Árvore de Busca Binária em In-Order
+* @param node - Ponteiro de um Nó da Árvore
+* @return void
+*
+*/
 void inorder(MagicTreeNode *node) {
     if (node != NULL) {
         inorder(node -> left);
@@ -42,6 +77,12 @@ void inorder(MagicTreeNode *node) {
     }
 }
 
+/**
+* @brief Função percorrer a Árvore de Busca Binária em Pos-Order
+* @param node - Ponteiro de um Nó da Árvore
+* @return void
+*
+*/
 void posorder(MagicTreeNode *node) {
     if (node != NULL) {
         posorder(node -> left);
@@ -50,10 +91,24 @@ void posorder(MagicTreeNode *node) {
     }
 }
 
+/**
+* @brief REVER: Função para procurar a cidade pelo nome
+* @param tree - Ponteiro da árvore associada a cidade
+* @param name - Nome da Cidade
+* @return Ponteiro do tipo Nó
+*
+*/
 MagicTreeNode* magictree_search(MagicTree *tree, String name) {
     return magicnode_search(tree -> root, name);
 }
 
+/**
+* @brief REVER: Função para procurar a cidade pelo nome
+* @param node - Ponteiro da árvore associada a cidade
+* @param name - Nome da Cidade
+* @return Ponteiro do tipo Nó
+*
+*/
 MagicTreeNode* magicnode_search(MagicTreeNode *node, String name) {
     if ((node == NULL) || strcmp(node -> name, name) == 0) {
         return node;
@@ -67,6 +122,12 @@ MagicTreeNode* magicnode_search(MagicTreeNode *node, String name) {
     }  
 }
 
+/**
+* @brief Função para retornar o maior Nó da Árvore
+* @param node - Ponteiro do Nó
+* @return Ponteiro do maior Nó da Árvore
+*
+*/
 MagicTreeNode* tree_max(MagicTreeNode *node) {
     if (node == NULL) return 0;
 
@@ -77,6 +138,12 @@ MagicTreeNode* tree_max(MagicTreeNode *node) {
     return node;
 }
 
+/**
+* @brief Função para retornar o menor Nó da Árvore
+* @param node - Ponteiro do Nó
+* @return Ponteiro do menor Nó da Árvore
+*
+*/
 MagicTreeNode* tree_min(MagicTreeNode *node) {
     if (node == NULL) return 0;
 
@@ -86,6 +153,14 @@ MagicTreeNode* tree_min(MagicTreeNode *node) {
     return node;
 }
 
+/**
+* @brief Função para inserir uma cidade na Árvore
+* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
+* @param name - Ponteiro do nome da cidade
+* @param node - Temperatura da cidade
+* @return void
+*
+*/
 void tree_insert(MagicTree **tree, String name, int weather) {
     MagicTreeNode *y;
     MagicTreeNode *x;
@@ -120,6 +195,14 @@ void tree_insert(MagicTree **tree, String name, int weather) {
     (*tree) -> size++;
 }
 
+/**
+* @brief Função para realizar o transplante na Árvore
+* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
+* @param u - IRINEU
+* @param v - IRINEU
+* @return void
+*
+*/
 void tree_transplant(MagicTree **tree, MagicTreeNode *u, MagicTreeNode *v) {
     if (u -> father == NULL) {
         (*tree) -> root = v;
@@ -139,6 +222,13 @@ void tree_transplant(MagicTree **tree, MagicTreeNode *u, MagicTreeNode *v) {
     }
 }
 
+/**
+* @brief Função para remover uma cidade da Árvore
+* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
+* @param z - Ponteiro da cidade a remover
+* @return void
+*
+*/
 void tree_remove(MagicTree **tree, MagicTreeNode *z) {
     MagicTreeNode* y;
 
@@ -166,6 +256,12 @@ void tree_remove(MagicTree **tree, MagicTreeNode *z) {
     }
 }
 
+/**
+* @brief Função destruir um nó da Árvore
+* @param node - Ponteiro do Nó a destruir
+* @return void
+*
+*/
 void node_destroy(MagicTreeNode *node) {
     if (node != NULL) {
         node_destroy(node->left);
@@ -175,6 +271,12 @@ void node_destroy(MagicTreeNode *node) {
     }
 }
 
+/**
+* @brief Função para destruir a Árvore
+* @param node - Ponteiro da Árvore a destruir
+* @return void
+*
+*/
 void tree_destroy(MagicTree ** tree) {
     node_destroy((*tree)->root);
     (*tree)->size = 0;
