@@ -49,12 +49,7 @@ MagicTreeNode* magicnode_init(String name, int mimWeather) {
     return z;
 }
 
-/**
-* @brief Protótipo percorrer a Árvore de Busca Binária em Pre-Order
-* @param node - Ponteiro de um Nó da Árvore
-* @return void
-*
-*/
+
 void preorder(MagicTreeNode *node) {
     if (node != NULL) {
         printf("City: %s\nMin.Weather: %d\n\n", node -> name, node -> minWeather);
@@ -196,10 +191,10 @@ void tree_insert(MagicTree **tree, String name, int weather) {
 }
 
 /**
-* @brief Função para realizar o transplante na Árvore
+* @brief Função para realizar o transplante na Árvore, que substitui o Nó u pelo Nó v
 * @param tree - Ponteiro para ponteiro da Árvore associada a cidade
-* @param u - IRINEU
-* @param v - IRINEU
+* @param u - Nó a receber o transplante
+* @param v - Nó a transplantar no nó U 
 * @return void
 *
 */
