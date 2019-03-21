@@ -60,124 +60,33 @@ typedef struct MagicTree_{
     MagicTreeNode *root;  /**<Variável que armazena o Nó Raiz #root*/
 } MagicTree;
 
-/**
-* @brief Protótipo para inicializar a Árvore de Busca Binária
-* @param tree - Ponteiro para ponteiro da árvore
-* @return void
-*
-*/
+
 void magictree_init(MagicTree **tree);
 
-/**
-* @brief Protótipo para inicializar o Nó da Árvore de Busca Binária
-* @param name - Ponteiro tipo char do nome da Cidade
-* @param minWeather - Temperatura da Cidade
-* @return Ponteiro do tipo Nó de Árvore
-*
-*/
 MagicTreeNode *magicnode_init(String name, int minWeather);
 
-/**
-* @brief Protótipo percorrer a Árvore de Busca Binária em Pre-Order
-* @param node - Ponteiro de um Nó da Árvore
-* @return void
-*
-*/
 void preorder(MagicTreeNode *node);
 
-/**
-* @brief Protótipo percorrer a Árvore de Busca Binária em In-Order
-* @param node - Ponteiro de um Nó da Árvore
-* @return void
-*
-*/
 void inorder(MagicTreeNode *node);
 
-/**
-* @brief Protótipo percorrer a Árvore de Busca Binária em Pos-Order
-* @param node - Ponteiro de um Nó da Árvore
-* @return void
-*
-*/
 void posorder(MagicTreeNode *node);
 
-/**
-* @brief REVER: Protótipo para procurar a cidade pelo nome
-* @param tree - Ponteiro da árvore associada a cidade
-* @param name - Nome da Cidade
-* @return Ponteiro do tipo Nó
-*
-*/
 MagicTreeNode *magictree_search(MagicTree *tree, String name);
 
-/**
-* @brief REVER: Protótipo para procurar a cidade pelo nome
-* @param node - Ponteiro da árvore associada a cidade
-* @param name - Nome da Cidade
-* @return Ponteiro do tipo Nó
-*
-*/
 MagicTreeNode *magicnode_search(MagicTreeNode *node, String name);
 
-/**
-* @brief Protótipo para retornar o maior Nó da Árvore
-* @param node - Ponteiro do Nó
-* @return Ponteiro do maior Nó da Árvore
-*
-*/
 MagicTreeNode *tree_max(MagicTreeNode *node);
 
-/**
-* @brief Protótipo para retornar o menor Nó da Árvore
-* @param node - Ponteiro do Nó
-* @return Ponteiro do menor Nó da Árvore
-*
-*/
 MagicTreeNode* tree_min(MagicTreeNode *node);
 
-/**
-* @brief Protótipo para inserir uma cidade na Árvore
-* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
-* @param name - Ponteiro do nome da cidade
-* @param node - Temperatura da cidade
-* @return void
-*
-*/
 void tree_insert(MagicTree **tree, String name, int minWeather);
 
-/**
-* @brief Protótipo para realizar o transplante na Árvore
-* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
-* @param u - IRINEU
-* @param v - IRINEU
-* @return void
-*
-*/
 void tree_transplant(MagicTree **tree, MagicTreeNode *u, MagicTreeNode *v);
 
-/**
-* @brief Protótipo para remover uma cidade da Árvore
-* @param tree - Ponteiro para ponteiro da Árvore associada a cidade
-* @param z - Ponteiro da cidade a remover
-* @return void
-*
-*/
 void tree_remove(MagicTree **tree, MagicTreeNode *z);
 
-/**
-* @brief Protótipo destruir um nó da Árvore
-* @param node - Ponteiro do Nó a destruir
-* @return void
-*
-*/
 void node_destroy(MagicTreeNode *node);
 
-/**
-* @brief Protótipo para destruir a Árvore
-* @param node - Ponteiro da Árvore a destruir
-* @return void
-*
-*/
 void tree_destroy(MagicTree **tree);
 
 #endif
