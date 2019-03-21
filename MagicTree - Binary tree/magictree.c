@@ -92,7 +92,7 @@ void posorder(MagicTreeNode *node) {
 }
 
 /**
-* @brief REVER: Função para procurar a cidade pelo nome
+* @brief Função para procurar cidade na Árvore
 * @param tree - Ponteiro da árvore associada a cidade
 * @param name - Nome da Cidade
 * @return Ponteiro do tipo Nó
@@ -103,7 +103,7 @@ MagicTreeNode* magictree_search(MagicTree *tree, String name) {
 }
 
 /**
-* @brief REVER: Função para procurar a cidade pelo nome
+* @brief Função para procurar a cidade pelo nome no Nó da Árvore
 * @param node - Ponteiro da árvore associada a cidade
 * @param name - Nome da Cidade
 * @return Ponteiro do tipo Nó
